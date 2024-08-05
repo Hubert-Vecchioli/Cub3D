@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:46:52 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:55:54 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_get_player_position(t_game *game)
 	}
 }
 
-int	*xpm_to_tab(t_game *game, int *width, int *height, char *path)
+int	*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path)
 {
 	t_img_data	tmp;
 	int			*buffer;
@@ -64,12 +64,12 @@ int	*xpm_to_tab(t_game *game, int *width, int *height, char *path)
 
 	tmp.img = mlx_xpm_file_to_image(game->mlx_ptr, path, width, height);
 	if (!tmp.img)
-		ft_error_exit("Error, impossible to load the texture", game);
+		ft_error_exit("Error: impossible to load", game);
 	tmp.addr_int = (int *)mlx_get_game_addr(tmp.img, &tmp.bpp, &tmp.line_lengh,
 			&tmp.endian);
 	buffer = ft_calloc(1, sizeof * buffer * *width * *height);
 	if (!buffer)
-		ft_error_exit("Error, malloc", game);
+		ft_error_exit("Error, malloc failure", game);
 	y = -1;
 	while (++y < *height)
 	{
