@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:45:36 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:32:27 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static int	ft_review_color_format(char *str, int	i)
 	return (1);
 }
 
+
 int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 {
 	int	r;
@@ -59,32 +60,14 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 	int	b;
 
 	r = ft_atoi(&game->map[row_id][col_id]);
-	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (!ft_count_digits(&game->map[row_id][col_id]))
-		return (0);
-	col_id += ft_count_digits(&game->map[row_id][col_id]);
-	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (game->map[row_id][col_id] == ',')
-			col_id++;
-	else 
+	if (!ft_valid_color(game, row_id, &col_id, 1))
 		return (0);
 	g = ft_atoi(&game->map[row_id][col_id]);
-	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (!ft_count_digits(&game->map[row_id][col_id]))
-		return (0);
-	col_id += ft_count_digits(&game->map[row_id][col_id]);
-	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (game->map[row_id][col_id] == ',')
-			col_id++;
-	else 
+	if (!ft_valid_color(game, row_id, &col_id, 1))
 		return (0);
 	b = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (!ft_count_digits(&game->map[row_id][col_id]))
-		return (0);
-	col_id += ft_count_digits(&game->map[row_id][col_id]);
-	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (game->map[row_id][col_id])
+	if (!ft_valid_color(game, row_id, &col_id, 0))
 		return (0);
 	game->colors[color_id] = (r << 16) + (g << 8) + (b);
 	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
@@ -130,5 +113,7 @@ int	ft_get_colors(t_game *game)
 		ft_parse_colors(game, &row_id, &count_colors);
 	if (count_colors != 2)
 		ft_error_exit("Error: missing color in input", game);
+	printf("color F: %x\n", game->colors[0]);
+	printf("color C: %x\n", game->colors[1]);
 	return (1);
 }

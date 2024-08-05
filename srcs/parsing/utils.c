@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:03:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:04:44 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:32:32 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,19 @@ int	ft_get_max_map_width(char **map)
 		i++;
 	}
 	return (count);
+}
+
+int	ft_valid_color(t_game *game, int row_id, int *col_id, int comma)
+{
+	*col_id += ft_count_whitespaces(&game->map[row_id][*col_id]);
+	if (!ft_count_digits(&game->map[row_id][*col_id]))
+		return (0);
+	*col_id += ft_count_digits(&game->map[row_id][*col_id]);
+	*col_id += ft_count_whitespaces(&game->map[row_id][*col_id]);
+	if (comma && game->map[row_id][*col_id] != ',')
+		return (0);
+	else if (!comma && game->map[row_id][*col_id] != '\0')
+		return (0);
+	*col_id += 1;
+	return (1);
 }

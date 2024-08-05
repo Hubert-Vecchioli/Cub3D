@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:16:58 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:32:54 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int				ft_count_digits(char *str);
 int				ft_hook_on_mousemove(int x, int y, t_game *game);
 int				ft_get_time(void);
 int				*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path);
+int				ft_valid_color(t_game *game, int row_id, int *col_id, int comma);
 void			ft_ray_cast(t_game *game);
 void			ft_door_action(t_game *game); 
 void			ft_add_weapon(t_game *game);

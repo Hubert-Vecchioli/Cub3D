@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 03:08:23 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:44:29 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:18:42 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef struct s_game
 	char		**texture_paths;
 	int			**textures;
 	int			tex_size;
-	size_t		colors[2];
+	int		colors[2];
 	void		*mlx_ptr;
 	void		*window;
 	t_img_data	*imgs;
