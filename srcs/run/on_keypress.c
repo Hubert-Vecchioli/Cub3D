@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 10:31:58 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 14:04:02 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:05:31 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	ft_on_keypress(int keycode, t_game *game)
 	if (keycode == ARROW_RIGHT)
 		game->player->camera_moved_y = 1;
 	if (keycode == W_KEY)
-		game->player->has_moved_y++;
+		game->player->has_moved_y = 1;
 	if (keycode == S_KEY)
-		game->player->has_moved_y--;
+		game->player->has_moved_y = -1;
 	if (keycode == D_KEY)
-		game->player->has_moved_x++;
+		game->player->has_moved_x = 1;
 	if (keycode == A_KEY)
-		game->player->has_moved_x--;
+		game->player->has_moved_x = -1;
 	if (keycode == ESCAPE)
 	{
 		ft_putendl_fd("Closing the window - See you soon!", 1);
