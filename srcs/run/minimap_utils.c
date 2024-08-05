@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:23:12 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:04:47 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:33:07 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-
-static void	ft_minimap_actual_draw(t_game *game, t_vector mini_map_pos, \
+void	ft_minimap_actual_draw(t_game *game, t_vector mini_map_pos, \
 t_vector mini_map_size, t_minimap *minimap)
 {
 	minimap->pos.x = mini_map_pos.x + (minimap->axe.x - game->player->posx + 5) \
@@ -54,8 +53,6 @@ void	draw_player(t_game *game, t_vector map_pos, t_vector map_size)
 	double	angle;
 	t_vector	pos_player;
 	t_vector	point;
-	int		x;
-	int		y;
 
 	pos_player.x = map_pos.x + 5 * map_size.x / 10;
 	pos_player.y = map_pos.y + 5 * map_size.y / 10;

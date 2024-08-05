@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:55:54 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:37:58 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path)
 	tmp.img = mlx_xpm_file_to_image(game->mlx_ptr, path, width, height);
 	if (!tmp.img)
 		ft_error_exit("Error: impossible to load", game);
-	tmp.addr_int = (int *)mlx_get_game_addr(tmp.img, &tmp.bpp, &tmp.line_lengh,
+	tmp.addr_int = (int *)mlx_get_data_addr(tmp.img, &tmp.bpp, &tmp.line_lengh,
 			&tmp.endian);
 	buffer = ft_calloc(1, sizeof * buffer * *width * *height);
 	if (!buffer)
@@ -89,16 +89,16 @@ void	ft_init_imgs(t_game *game)
 	game->textures = ft_calloc(5 + BONUS, sizeof(int *));
 	if (!game->textures)
 		ft_error_exit("Error: malloc failure", game);
-	game->textures[0] = xpm_to_tab(game, &game->tex_size, &game->tex_size,
+	game->textures[0] = ft_xpm_to_tab(game, &game->tex_size, &game->tex_size,
 			game->texture_paths[0]);
-	game->textures[1] = xpm_to_tab(game, &game->tex_size, &game->tex_size,
+	game->textures[1] = ft_xpm_to_tab(game, &game->tex_size, &game->tex_size,
 			game->texture_paths[1]);
-	game->textures[2] = xpm_to_tab(game, &game->tex_size, &game->tex_size,
+	game->textures[2] = ft_xpm_to_tab(game, &game->tex_size, &game->tex_size,
 			game->texture_paths[2]);
-	game->textures[3] = xpm_to_tab(game, &game->tex_size, &game->tex_size,
+	game->textures[3] = ft_xpm_to_tab(game, &game->tex_size, &game->tex_size,
 			game->texture_paths[3]);
 	if (BONUS)
-		game->textures[4] = xpm_to_tab(game, &game->tex_size,
+		game->textures[4] = ft_xpm_to_tab(game, &game->tex_size,
 				&game->tex_size, "./textures/blackstone.xpm");
 	ft_init_weapon_sprites(game);
 }
