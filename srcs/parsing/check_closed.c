@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:38:40 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 15:55:14 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:56:07 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_map_has_surronding_leak(char **map, int i, int j)
 		|| (!map[i + 1][j - 1] || ft_iswhitespace(map[i + 1][j - 1]))
 		|| (!map[i + 1][j] || ft_iswhitespace(map[i + 1][j]))
 		|| (!map[i + 1][j + 1] || ft_iswhitespace(map[i + 1][j + 1])))
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 // How to handle non square maps ??

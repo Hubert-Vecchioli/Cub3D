@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 15:56:26 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:45:36 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_review_color_format(char *str, int	i)
 	{
 		if ((!ft_isdigit(str[i]) && str[i] != ',')
 			&& !ft_iswhitespace(str[i]))
-			return (-1);
+			return (0);
 		if (str[i] == ',')
 			count_coma++;
 		i++;
@@ -60,7 +60,7 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 
 	r = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (ft_count_digits(&game->map[row_id][col_id]))
+	if (!ft_count_digits(&game->map[row_id][col_id]))
 		return (0);
 	col_id += ft_count_digits(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
@@ -70,7 +70,7 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 		return (0);
 	g = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (ft_count_digits(&game->map[row_id][col_id]))
+	if (!ft_count_digits(&game->map[row_id][col_id]))
 		return (0);
 	col_id += ft_count_digits(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
@@ -80,7 +80,7 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 		return (0);
 	b = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
-	if (ft_count_digits(&game->map[row_id][col_id]))
+	if (!ft_count_digits(&game->map[row_id][col_id]))
 		return (0);
 	col_id += ft_count_digits(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);

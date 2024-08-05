@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:23:12 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 16:33:07 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:40:25 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int color)
 
 void	draw_player(t_game *game, t_vector map_pos, t_vector map_size)
 {	
-	double	angle;
+	double		angle;
 	t_vector	pos_player;
 	t_vector	point;
 
@@ -60,7 +60,7 @@ void	draw_player(t_game *game, t_vector map_pos, t_vector map_size)
 	while (angle < 2 * M_PI)
 	{
 		point.x = (int)((double)(map_size.x / 40) * cos(angle)) + pos_player.x;
-		point.y = (int)((double)(map_size.x / 40) * sin(angle)) + pos_player.y;
+		point.y = (int)((double)(map_size.y / 40) * sin(angle)) + pos_player.y;
 		ft_color_single_pixel(game, point.x, point.y, 0x00FF00);
 		angle += 0.01;
 	}
