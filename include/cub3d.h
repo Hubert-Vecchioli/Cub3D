@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:57:50 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:00:41 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int				ft_count_digits(char *str);
 int				ft_hook_on_mousemove(int x, int y, t_game *game);
 int				ft_get_time(void);
 int				*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path);
+void			ft_ray_cast(t_game *game);
+void			ft_door_action(t_game *game); 
 void			ft_add_weapon(t_game *game);
 void			ft_player_north_spawn(t_game *game);
 void			ft_player_south_spawn(t_game *game);
@@ -86,8 +88,6 @@ void			ft_update_player_position(t_game *game);
 void			ft_update_player_view(t_game *game);
 void			close_and_exit(t_game *game);
 void			ft_init_imgs(t_game *game);
-void			ft_ray_cast(t_game *game);
-void			ft_door_action(t_game *game);
 void			ft_init_weapon_sprites(t_game *game);
 void			ft_free_split(char ***split);
 void			ft_color_single_pixel(t_game *game, int x, int y, int color);
