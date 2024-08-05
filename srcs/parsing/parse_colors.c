@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:03:02 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:56:26 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 
 	r = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
+	if (ft_count_digits(&game->map[row_id][col_id]))
+		return (0);
 	col_id += ft_count_digits(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
 	if (game->map[row_id][col_id] == ',')
@@ -68,6 +70,8 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 		return (0);
 	g = ft_atoi(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
+	if (ft_count_digits(&game->map[row_id][col_id]))
+		return (0);
 	col_id += ft_count_digits(&game->map[row_id][col_id]);
 	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
 	if (game->map[row_id][col_id] == ',')
@@ -75,18 +79,24 @@ int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 	else 
 		return (0);
 	b = ft_atoi(&game->map[row_id][col_id]);
+	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
+	if (ft_count_digits(&game->map[row_id][col_id]))
+		return (0);
+	col_id += ft_count_digits(&game->map[row_id][col_id]);
+	col_id += ft_count_whitespaces(&game->map[row_id][col_id]);
+	if (game->map[row_id][col_id])
+		return (0);
 	game->colors[color_id] = (r << 16) + (g << 8) + (b);
 	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
 		return (0);
 	return (1);
 }
 
-// ATTENTION cas "XXX,XXX, " a traiter
 static void	ft_parse_colors(t_game *game, int *row_id, int *count_colors)
 {
 	int	color_id;
 	int	col_id;
-	
+
 	col_id = ft_count_whitespaces(game->map[*row_id]);
 	color_id = ft_get_color_id(game->map[*row_id][col_id]);
 	if (color_id != -1)

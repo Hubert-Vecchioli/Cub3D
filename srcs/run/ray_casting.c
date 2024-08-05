@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 23:47:02 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:49:43 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:08:16 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ray_cast(t_game *game)
 {
 	// initialiser l'indicateur de visée sur une porte ouverte à 0
+	// dessiner les lignes de plafond et de sol
 	// loop tant que j'ai pas couvert mon ecran
 	{
 		// initialiser les variables du rayon
@@ -23,7 +24,6 @@ void	ray_cast(t_game *game)
 		 // initialiser la position x du mur frappé
 			// Initialiser les variables de la ligne à dessiner
 		// dessiner la ligne texturée pour ce rayon
-		// dessiner les lignes de plafond et de sol
 		// passer à la colonne suivante
 	}
 	 // déterminer si le joueur vise une porte ouverte ou une porte en général afin de savoir si on pourra l'ouvrir à l'avenir

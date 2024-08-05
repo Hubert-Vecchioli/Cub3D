@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_closed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:38:40 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:04:28 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:55:14 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@ int	ft_map_has_surronding_leak(char **map, int i, int j)
 {
 	if ((!map[i - 1][j - 1] || ft_iswhitespace(map[i - 1][j - 1]))
 		|| (!map[i - 1][j] || ft_iswhitespace(map[i - 1][j]))
-		|| (!map[i - 1][j + 1] || ft_iswhitespace(map[i - 1][j+ 1]))
+		|| (!map[i - 1][j + 1] || ft_iswhitespace(map[i - 1][j + 1]))
 		|| (!map[i][j - 1] || ft_iswhitespace(map[i][j - 1]))
 		|| (!map[i][j + 1] || ft_iswhitespace(map[i][j + 1]))
 		|| (!map[i + 1][j - 1] || ft_iswhitespace(map[i + 1][j - 1]))
-		|| (!map[i + 1][j] || ft_iswhitespace(map[i+ 1][j]))
+		|| (!map[i + 1][j] || ft_iswhitespace(map[i + 1][j]))
 		|| (!map[i + 1][j + 1] || ft_iswhitespace(map[i + 1][j + 1])))
 		return (0);
 	return (1);
 }
 
+// How to handle non square maps ??
 static int	ft_is_char_allowed_in_map(char c)
 {
 	if (BONUS == 1 && c == 'D')
 		return (1);
-	if (c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '1' 
+	if (c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '1'
 		&& c != '0')
 		return (0);
 	return (1);
@@ -38,23 +39,21 @@ static int	ft_is_char_allowed_in_map(char c)
 
 int	ft_is_map_closed(t_game *game)
 {
-	int	i;
-	int	j;
+	int	row_id;
+	int	col_id;
 
-	i = 0;
-	while (game->map[i])
+	row_id = 0;
+	while (game->map[row_id])
 	{
-		j = 0;
-		while (game->map[i][j])
+		col_id = 0;
+		while (game->map[row_id][col_id])
 		{
-			if (!ft_is_char_allowed_in_map(game->map[i][j])) // deja check mais why not
-				ft_error_exit("Error: Unauthorised char in map", game);
-			if (game->map[i][j] == '0' || ft_is_player_direction(game->map[i][j]))
-				if (ft_map_has_surronding_leak(game->map, i, j))
+			if (game->map[row_id][col_id] == '0' || ft_is_player_direction(game->map[row_id][col_id]))
+				if (ft_map_has_surronding_leak(game->map, row_id, col_id))
 					ft_error_exit("Error: Map is not closed", game);
-			j++;
+			col_id++;
 		}
-		i++;
+		row_id++;
 	}
 	return (1);
 }
