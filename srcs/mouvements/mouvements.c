@@ -6,13 +6,20 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:57 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:07:49 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:28:02 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	ft_ft_move_y_plus(t_game *game)
+void	ft_door_action(t_game *game)
+{
+	(void) game;
+	// TODO reset the paramters !
+	return ;
+}
+
+static void	ft_move_y_plus(t_game *game)
 {
 	if (game->player->has_moved_y == 1 && game->map[(int)(game->player->posx + game->player->direction_x
 			* MOVESPEED)][(int)(game->player->posy + game->player->direction_y

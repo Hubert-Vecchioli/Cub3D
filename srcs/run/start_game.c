@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:05:15 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:49:01 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:20:35 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_start_game(t_game *game)
 		ft_error_exit("Error: minilibx failed to init", game);
 	game->window = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, "cub3D");
 	game->imgs->img = mlx_new_image(game->mlx_ptr, WIDTH, HEIGHT);
-	game->imgs->addr = mlx_get_game_addr(game->imgs->img, &game->imgs->bpp,
+	game->imgs->addr = mlx_get_data_addr(game->imgs->img, &game->imgs->bpp,
 			&game->imgs->line_lengh, &game->imgs->endian);
 	ft_init_hud_animation(game);
 	ft_init_imgs(game);

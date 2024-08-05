@@ -36,7 +36,7 @@ endif
 # 	MINIFLAGS		=	-framework OpenGL -framework Appkit -lz
 # else
 	MINILIBX_PATH 	=	./mlx-linux
-	MINIFLAGS		=	-lXext -lX11 -lm -lbsd
+	MINIFLAGS		=	-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 # endif
 MINILIBX			= $(MINILIBX_PATH)/libmlx.a
 
@@ -51,7 +51,8 @@ PARSINGFILES 	= utils.c \
 				parse_colors.c \
 			    tab_manip.c \
 				get_texture_paths.c \
-				free.c
+				free.c \
+				parse_map.c
 RUNFILES 		= draw.c \
 				init_player.c \
 				hooks.c \
@@ -60,7 +61,8 @@ RUNFILES 		= draw.c \
 				utils.c \
 				ray_casting.c \
 				on_keypress.c \
-				display.c
+				minimap.c \
+				start_game.c
 MVTFILES	 	= mouvements.c \
 				mouse.c
 ANIMATIONFILES	= hud_utils.c \
@@ -92,36 +94,36 @@ END				=	\033[0m
 all: $(NAME)
 
 $(NAME): 	$(MINILIBX) $(LIBFT) $(OBJDIRS) $(OBJS)
-			@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MINIFLAGS) -I$(INCS) -L$(LIBFT_DIR)
+			@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MINIFLAGS) -I$(INCS) -L$(LIBFT_DIR) -lft
 			@echo "${GREEN}> ${NAME} was successfuly compiled 🎉${END}"
 
 $(OBJDIRS):
-	mkdir -p $(OBJDIRS)
-	mkdir -p $(addprefix $(OBJDIRS)/, main)
-	mkdir -p $(addprefix $(OBJDIRS)/, run)
-	mkdir -p $(addprefix $(OBJDIRS)/, parsing)
-	mkdir -p $(addprefix $(OBJDIRS)/, mouvements)
-	mkdir -p $(addprefix $(OBJDIRS)/, animations)
+	@mkdir -p $(OBJDIRS)
+	@mkdir -p $(addprefix $(OBJDIRS)/, main)
+	@mkdir -p $(addprefix $(OBJDIRS)/, run)
+	@mkdir -p $(addprefix $(OBJDIRS)/, parsing)
+	@mkdir -p $(addprefix $(OBJDIRS)/, mouvements)
+	@mkdir -p $(addprefix $(OBJDIRS)/, animations)
 
 $(MINILIBX):
 			@make -C $(MINILIBX_PATH)
-			@echo "${GREEN}> ${LIBFT} was successfuly compiled 🎉${END}"
+			@echo "${GREEN}> ${MINILIBX} was successfuly compiled 🎉${END}"
 
 $(LIBFT):
-			@$(MAKE) -C $(LIBFT_DIR)
+			@make -C $(LIBFT_DIR)
 			@echo "${GREEN}> ${LIBFT} was successfuly compiled 🎉${END}"
 
 $(OBJDIRS)/%.o: $(SRCDIRS)/%.c
 			@$(CC) $(CFLAGS) $(BONUS) -I$(INCS) -c $< -o $@
 
 bonus:
-			@$(MAKE) BONUS="-D BONUS=1" $(NAME)
+			@make BONUS="-D BONUS=1" $(NAME)
 
 ###############################################################################
 ###############################################################################
 
 clean:
-			@$(MAKE) -C $(LIBFT_DIR) clean
+			@make -C $(LIBFT_DIR) clean
 			@rm -rf $(OBJDIRS)
 			@echo "${GREEN}> Objects deleted${END}"
 

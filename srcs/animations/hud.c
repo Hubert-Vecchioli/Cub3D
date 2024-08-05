@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:28:19 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:05:05 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:09:53 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void	ft_init_weapon_sprites(t_game *game)
 
 	w = 0;
 	h = 0;
-	game->hud->frames[0].addr_int = xpm_to_tab(game, &w, &h,
+	game->hud->frames[0].addr_int = ft_xpm_to_tab(game, &w, &h,
 			"./textures/gun_sprites/gun_idle.xpm");
-	game->hud->frames[1].addr_int = xpm_to_tab(game, &w, &h,
+	game->hud->frames[1].addr_int = ft_xpm_to_tab(game, &w, &h,
 			"./textures/gun_sprites/gun_shoot00.xpm");
-	game->hud->frames[2].addr_int = xpm_to_tab(game, &w, &h,
+	game->hud->frames[2].addr_int = ft_xpm_to_tab(game, &w, &h,
 			"./textures/gun_sprites/gun_shoot01.xpm");
-	game->hud->frames[3].addr_int = xpm_to_tab(game, &w, &h,
+	game->hud->frames[3].addr_int = ft_xpm_to_tab(game, &w, &h,
 			"./textures/gun_sprites/gun_shoot02.xpm");
 	i = 0;
 	while (i < 4)

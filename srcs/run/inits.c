@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 16:37:58 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:27:37 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_reset_ray_parameters(t_game *game)
 {
+	(void) game;
 	// TODO reset the paramters !
 	return ;
 }

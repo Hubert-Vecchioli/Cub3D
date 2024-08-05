@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 16:33:15 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:16:58 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 // //#  include "../mlx-opengl/mlx_int.h"
 // #  define OS "macos"
 // # elif __linux__
-#  include "../mlx-linux/mlx.h"
-#  include "../mlx-linux/mlx_int.h"
+# include "../mlx-linux/mlx.h"
+# include "../mlx-linux/mlx_int.h"
 // #  define OS "linux"
 // # endif
 # include <sys/time.h>
@@ -80,7 +80,8 @@ void			ft_player_east_spawn(t_game *game);
 void			ft_get_player_position(t_game *game);
 void			ft_restet_screen_display(t_game *game);
 void			ft_get_player_initial_view(t_game *game);
-void			ft_add_img_but_one_color(t_game *game, int x, int y, int color);
+void			ft_add_img_but_one_color(t_game *game, t_img_data img, int img_corner_x, \
+int img_corner_y);
 void			ft_init_hud_animation(t_game *game);
 void			ft_add_aim_point(t_game *game, int color, int r);
 void			ft_reset_ray_parameters(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 00:01:26 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:03:40 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:20:14 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	ft_minimap_size(t_game *game, t_vector *mini_map_size, t_vector *min
 	mini_map_size->y = mini_map_size->x;
 	mini_map_pos->x = WIDTH - mini_map_size->x - 25;
 	mini_map_pos->y = 25;
+	(void)game;
 }
 
 void	ft_minimap(t_game *game)

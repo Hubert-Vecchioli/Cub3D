@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:33:39 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:45:32 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:17:08 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static t_game	*ft_init_game(t_game *game)
 		ft_error_exit("Error: malloc failure", game);
 	return (game);
 }
+
 int	main(int ac, char **av)
 {
 	t_game	*game;
