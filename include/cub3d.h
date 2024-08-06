@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:30:15 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:07:13 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,18 @@ int				ft_on_mouse_click(int keycode, int x, int y, t_game *game);
 int				ft_count_digits(char *str);
 int				ft_hook_on_mousemove(int x, int y, t_game *game);
 int				ft_get_time(void);
-int				*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path);
-int				ft_valid_color(t_game *game, int row_id, int *col_id, int comma);
+int				*ft_xpm_to_tab(t_game *game, int *width, \
+int *height, char *path);
+int				ft_valid_color(t_game *game, int row_id, \
+int *col_id, int comma);
 void			ft_ray_cast(t_game *game);
-void			ft_door_action(t_game *game); 
+void			ft_door_action(t_game *game);
 void			ft_add_weapon(t_game *game);
 void			ft_player_north_spawn(t_game *game);
 void			ft_player_south_spawn(t_game *game);
 void			ft_player_west_spawn(t_game *game);
 void			ft_player_east_spawn(t_game *game);
 void			ft_get_player_position(t_game *game);
-void			ft_reset_screen_display(t_game *game);
 void			ft_get_player_initial_view(t_game *game);
 void			ft_init_hud_animation(t_game *game);
 void			ft_add_aim_point(t_game *game, int color, int r);
@@ -82,8 +83,9 @@ void			ft_error_exit(char *error, t_game *game);
 void			ft_get_wall_direction_hit(t_game *game);
 void			ft_init_line(t_game *game);
 void			ft_draw_wall_line(t_game *game);
-void			ft_add_img_but_one_color(t_game *game, t_img_data img, int img_corner_x, \
-int img_corner_y);
+void			ft_loop_ray_until_a_hit_bonus(t_game *game);
+void			ft_add_img_but_one_color(t_game *game, t_img_data img, \
+int img_corner_x, int img_corner_y);
 void			ft_minimap_actual_draw(t_game *game, t_vector mini_map_pos, \
 t_vector mini_map_size, t_minimap *minimap);
 void			ft_draw_square(t_game *game, t_vector start, t_vector end, \

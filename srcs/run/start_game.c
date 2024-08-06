@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:05:15 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:27:08 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:43:48 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ray_loop(void *param)
 	game = (t_game *)param;
 	ft_update_player_view(game);
 	ft_update_player_position(game);
-	//ft_reset_screen_display(game); //possible to comment it out as we clean the screen in the ray fonction
 	ft_reset_ray_parameters(game);
 	ft_ray_cast(game);
 	if (BONUS)

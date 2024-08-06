@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 23:47:02 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 14:07:18 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:08:18 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,26 @@ static void	ft_init_new_ray_dists(t_game *game)
 	if (game->ray->raydirx < 0)
 	{
 		game->ray->stepx = -1;
-		game->ray->distance_to_first_x = (game->player->posx - game->ray->mapx) * game->ray->distance_to_next_x;
+		game->ray->distance_to_first_x = (game->player->posx
+				- game->ray->mapx) * game->ray->distance_to_next_x;
 	}
 	else
 	{
 		game->ray->stepx = 1;
-		game->ray->distance_to_first_x = (game->ray->mapx + 1.0 - game->player->posx)
-			* game->ray->distance_to_next_x;
+		game->ray->distance_to_first_x = (game->ray->mapx + 1.0
+				- game->player->posx) * game->ray->distance_to_next_x;
 	}
 	if (game->ray->raydiry < 0)
 	{
 		game->ray->stepy = -1;
-		game->ray->distance_to_first_y = (game->player->posy - game->ray->mapy) * game->ray->distance_to_next_y;
+		game->ray->distance_to_first_y = (game->player->posy
+				- game->ray->mapy) * game->ray->distance_to_next_y;
 	}
 	else
 	{
 		game->ray->stepy = 1;
-		game->ray->distance_to_first_y = (game->ray->mapy + 1.0 - game->player->posy)
-			* game->ray->distance_to_next_y;
+		game->ray->distance_to_first_y = (game->ray->mapy + 1.0
+				- game->player->posy) * game->ray->distance_to_next_y;
 	}
 }
 
@@ -76,28 +78,7 @@ static void	ft_loop_ray_until_a_hit(t_game *game)
 		}
 		if (game->map[game->ray->mapx][game->ray->mapy] == '1')
 			game->ray->hit = 1;
-		if (BONUS)
-		{
-			if (game->map[game->ray->mapx][game->ray->mapy] == 'D')
-			{
-				game->ray->hit = 2;
-				game->ray->door_pos_x = game->ray->mapx;
-				game->ray->door_pos_y = game->ray->mapy;
-			}
-			if (game->map[game->ray->mapx][game->ray->mapy] == 'W' && game->ray->x == WIDTH /2) // modifcation de data --> map
-			{
-				if (game->ray->side == 0)
-					game->ray->perpwalldist = (game->ray->distance_to_first_x - game->ray->distance_to_next_x);
-				else if (game->ray->side == 1)
-					game->ray->perpwalldist = (game->ray->distance_to_first_y - game->ray->distance_to_next_y);
-				if (game->ray->perpwalldist < 1)
-				{
-					game->ray->aiming_at_open_door = 1;
-					game->ray->door_pos_x = game->ray->mapx;
-					game->ray->door_pos_y = game->ray->mapy;
-				}
-			}
-		}
+		ft_loop_ray_until_a_hit_bonus(game);
 	}
 }
 
@@ -113,9 +94,11 @@ static void	ft_draw_floor_and_ceiling(t_game *game)
 		while (screen_col_id < HEIGHT)
 		{
 			if (screen_col_id <= HEIGHT / 2)
-				ft_color_single_pixel(game, screen_row_id, screen_col_id, game->colors[0]);
-			else 
-				ft_color_single_pixel(game, screen_row_id, screen_col_id, game->colors[1]);
+				ft_color_single_pixel(game, screen_row_id,
+					screen_col_id, game->colors[0]);
+			else
+				ft_color_single_pixel(game, screen_row_id,
+					screen_col_id, game->colors[1]);
 			screen_col_id++;
 		}
 		screen_row_id++;
@@ -124,7 +107,6 @@ static void	ft_draw_floor_and_ceiling(t_game *game)
 
 void	ft_ray_cast(t_game *game)
 {
-	// initialiser l'indicateur de visée sur une porte ouverte à 0
 	ft_draw_floor_and_ceiling(game);
 	game->ray->aiming_at_open_door = 0;
 	game->ray->aiming_at_door = 0;

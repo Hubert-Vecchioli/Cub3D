@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 17:14:50 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:01:44 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ void	ft_get_player_position(t_game *game)
 		col_id = 0;
 		while (game->map[row_id][col_id])
 		{
-			if (game->map[row_id][col_id] == 'N' || game->map[row_id][col_id] == 'S'
-				|| game->map[row_id][col_id] == 'E' || game->map[row_id][col_id] == 'W')
+			if (game->map[row_id][col_id] == 'N'
+				|| game->map[row_id][col_id] == 'S'
+				|| game->map[row_id][col_id] == 'E'
+				|| game->map[row_id][col_id] == 'W')
 			{
 				game->player->posx = row_id + 0.5;
 				game->player->posy = col_id + 0.5;
@@ -83,19 +85,18 @@ int	*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path)
 	temp.img = mlx_xpm_file_to_image(game->mlx_ptr, path, width, height);
 	if (!temp.img)
 		ft_error_exit("Error: impossible to load", game);
-	temp.addr_int = (int *)mlx_get_data_addr(temp.img, &temp.bits_per_pixel, &temp.line_lengh,
-			&temp.endian);
+	temp.addr_int = (int *)mlx_get_data_addr(temp.img, &temp.bits_per_pixel,
+			&temp.line_lengh, &temp.endian);
 	tab = ft_calloc(1, sizeof * tab * *width * *height);
 	if (!tab)
 		ft_error_exit("Error, malloc failure", game);
 	y = -1;
 	while (++y < *height)
 	{
-		x = 0;
-		while (x < *width)
+		x = -1;
+		while (++x < *width)
 		{
 			tab[y * *width + x] = temp.addr_int[y * *width + x];
-			++x;
 		}
 	}
 	mlx_destroy_image(game->mlx_ptr, temp.img);
