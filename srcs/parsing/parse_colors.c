@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 17:52:17 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:47:05 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int	ft_count_numbers_in_row(char *str)
 	num = 0;
 	while (str[i])
 	{
-		while (!ft_isdigit(str[i]))
+		while (str[i] && !ft_isdigit(str[i]))
 			i++;
 		if (str[i])
 			num++;
-		while (ft_isdigit(str[i]))
+		while (str[i] && ft_isdigit(str[i]))
 			i++;
 	}
 	return (num);
