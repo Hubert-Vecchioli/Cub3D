@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_closed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:38:40 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 14:02:40 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:15:10 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_map_has_surronding_leak(char **map, int i, int j)
 {
-	if ((!map[i - 1][j - 1] || ft_iswhitespace(map[i - 1][j - 1]))
-		|| (!map[i - 1][j] || ft_iswhitespace(map[i - 1][j]))
-		|| (!map[i - 1][j + 1] || ft_iswhitespace(map[i - 1][j + 1]))
-		|| (!map[i][j - 1] || ft_iswhitespace(map[i][j - 1]))
-		|| (!map[i][j + 1] || ft_iswhitespace(map[i][j + 1]))
-		|| (!map[i + 1][j - 1] || ft_iswhitespace(map[i + 1][j - 1]))
-		|| (!map[i + 1][j] || ft_iswhitespace(map[i + 1][j]))
-		|| (!map[i + 1][j + 1] || ft_iswhitespace(map[i + 1][j + 1])))
+	if ((j >= (int)ft_strlen(map[i - 1]) || ft_iswhitespace(map[i - 1][j - 1]) || !map[i - 1][j - 1])
+		|| (j >= (int)ft_strlen(map[i - 1]) || ft_iswhitespace(map[i - 1][j]) || !map[i - 1][j])
+		|| (j >= (int)ft_strlen(map[i - 1]) || ft_iswhitespace(map[i - 1][j + 1]) || !map[i - 1][j + 1])
+		|| (j >= (int)ft_strlen(map[i]) || ft_iswhitespace(map[i][j - 1]) || !map[i][j - 1])
+		|| (j >= (int)ft_strlen(map[i]) || ft_iswhitespace(map[i][j + 1]) || !map[i][j + 1])
+		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j - 1]) || !map[i + 1][j - 1])
+		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j]) || !map[i + 1][j])
+		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j + 1])) || !map[i + 1][j + 1])
 		return (1);
 	return (0);
 }
@@ -48,7 +48,7 @@ int	ft_is_map_closed(t_game *game)
 		while (game->map[row_id][col_id])
 		{
 			if (game->map[row_id][col_id] == '0' || ft_is_player_direction(game->map[row_id][col_id]))
-				if (ft_map_has_surronding_leak(game->map, row_id, col_id))
+				if (row_id == 0 || col_id == 0 || row_id == (int)ft_tablen(game->map) || col_id == (int)ft_strlen(game->map[row_id]) ||ft_map_has_surronding_leak(game->map, row_id, col_id))
 					ft_error_exit("Error: Map is not closed", game);
 			col_id++;
 		}
