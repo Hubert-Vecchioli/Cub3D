@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:25 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:10:03 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 07:27:01 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	ft_color_single_pixel(t_game *game, int x, int y, int color)
 	if (x < WIDTH && y < HEIGHT && y > 0 && x > 0)
 	{
 		dst = game->imgs->addr + (y * game->imgs->line_lengh + x
-				* (game->imgs->bpp / 8));
+				* (game->imgs->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
 }
 
-void	ft_restet_screen_display(t_game *game)
+void	ft_reset_screen_display(t_game *game)
 {
 	// je recouvre mais à voir si je ne destroy pas l'image precedente?
 	int	i;

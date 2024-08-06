@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 18:32:54 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 07:30:15 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 # define CUB3D_H
 
 # include "../libft/libft.h"
-// # ifdef __APPLE__
-// #  include "../mlx-opengl/mlx.h"
-// //#  include "../mlx-opengl/mlx_int.h"
-// #  define OS "macos"
-// # elif __linux__
 # include "../mlx-linux/mlx.h"
 # include "../mlx-linux/mlx_int.h"
-// #  define OS "linux"
-// # endif
 # include <sys/time.h>
 # include <fcntl.h>
 # include <math.h>
@@ -31,18 +24,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "struct.h"
-
-# define WIDTH 900
-# define HEIGHT 900
-
-# define ROTATION_SPEED 0.06
-# define MOVESPEED 0.08
-# define OFFSET_X 40
-# define OFFSET_Y 40
-
-# ifndef BONUS
-#  define BONUS 0
-# endif
 
 char			**ft_convert_map_to_square(char **map);
 char			**del_nfirst(int n, char **map);
@@ -79,10 +60,8 @@ void			ft_player_south_spawn(t_game *game);
 void			ft_player_west_spawn(t_game *game);
 void			ft_player_east_spawn(t_game *game);
 void			ft_get_player_position(t_game *game);
-void			ft_restet_screen_display(t_game *game);
+void			ft_reset_screen_display(t_game *game);
 void			ft_get_player_initial_view(t_game *game);
-void			ft_add_img_but_one_color(t_game *game, t_img_data img, int img_corner_x, \
-int img_corner_y);
 void			ft_init_hud_animation(t_game *game);
 void			ft_add_aim_point(t_game *game, int color, int r);
 void			ft_reset_ray_parameters(t_game *game);
@@ -100,6 +79,11 @@ void			ft_free_all(t_game *game);
 void			ft_start_game(t_game *game);
 void			ft_get_fd(char *map, t_game *game, int *fd);
 void			ft_error_exit(char *error, t_game *game);
+void			ft_get_wall_direction_hit(t_game *game);
+void			ft_init_line(t_game *game);
+void			ft_draw_wall_line(t_game *game);
+void			ft_add_img_but_one_color(t_game *game, t_img_data img, int img_corner_x, \
+int img_corner_y);
 void			ft_minimap_actual_draw(t_game *game, t_vector mini_map_pos, \
 t_vector mini_map_size, t_minimap *minimap);
 void			ft_draw_square(t_game *game, t_vector start, t_vector end, \

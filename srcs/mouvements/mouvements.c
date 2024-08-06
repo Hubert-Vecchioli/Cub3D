@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:57 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:28:02 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 07:41:55 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 void	ft_door_action(t_game *game)
 {
-	(void) game;
-	// TODO reset the paramters !
-	return ;
+ if (game->ray->aiming_at_door)
+   {
+       game->map[game->ray->door_pos_x][game->ray->door_pos_y] = 'W';
+   }
+   if (game->ray->aiming_at_open_door && (game->ray->door_pos_x
+   		!= game->player->posx || game->ray->door_pos_y != game->player->posy))
+   {
+       game->map[game->ray->door_pos_x][game->ray->door_pos_y] = 'D';
+   }
+
 }
 
 static void	ft_move_y_plus(t_game *game)

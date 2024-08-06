@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:27:37 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 07:45:54 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,26 @@
 
 void	ft_reset_ray_parameters(t_game *game)
 {
-	(void) game;
-	// TODO reset the paramters !
-	return ;
+	game->ray->x = 0;
+	game->ray->camerax = 0;
+	game->ray->raydirx = 0;
+	game->ray->raydiry = 0;
+	game->ray->distance_to_next_x = 0;
+	game->ray->distance_to_next_y = 0;
+	game->ray->distance_to_first_x = 0;
+	game->ray->distance_to_first_y = 0;
+	game->ray->perpwalldist = 0;
+	game->ray->wall_x = 0;
+	game->ray->mapx = 0;
+	game->ray->mapy = 0;
+	game->ray->stepx = 0;
+	game->ray->stepy = 0;
+	game->ray->side = 0;
+	game->ray->hit = 0;
+	game->ray->aiming_at_door = 0;
+	game->ray->aiming_at_open_door = 0;
+	game->ray->door_pos_x = 0;
+	game->ray->door_pos_y = 0;
 }
 
 void	ft_get_player_initial_view(t_game *game)
@@ -58,18 +75,18 @@ void	ft_get_player_position(t_game *game)
 
 int	*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path)
 {
-	t_img_data	tmp;
-	int			*buffer;
+	t_img_data	temp;
+	int			*tab;
 	int			x;
 	int			y;
 
-	tmp.img = mlx_xpm_file_to_image(game->mlx_ptr, path, width, height);
-	if (!tmp.img)
+	temp.img = mlx_xpm_file_to_image(game->mlx_ptr, path, width, height);
+	if (!temp.img)
 		ft_error_exit("Error: impossible to load", game);
-	tmp.addr_int = (int *)mlx_get_data_addr(tmp.img, &tmp.bpp, &tmp.line_lengh,
-			&tmp.endian);
-	buffer = ft_calloc(1, sizeof * buffer * *width * *height);
-	if (!buffer)
+	temp.addr_int = (int *)mlx_get_data_addr(temp.img, &temp.bits_per_pixel, &temp.line_lengh,
+			&temp.endian);
+	tab = ft_calloc(1, sizeof * tab * *width * *height);
+	if (!tab)
 		ft_error_exit("Error, malloc failure", game);
 	y = -1;
 	while (++y < *height)
@@ -77,12 +94,12 @@ int	*ft_xpm_to_tab(t_game *game, int *width, int *height, char *path)
 		x = 0;
 		while (x < *width)
 		{
-			buffer[y * *width + x] = tmp.addr_int[y * *width + x];
+			tab[y * *width + x] = temp.addr_int[y * *width + x];
 			++x;
 		}
 	}
-	mlx_destroy_image(game->mlx_ptr, tmp.img);
-	return (buffer);
+	mlx_destroy_image(game->mlx_ptr, temp.img);
+	return (tab);
 }
 
 void	ft_init_imgs(t_game *game)

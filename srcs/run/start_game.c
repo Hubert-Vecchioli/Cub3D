@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:05:15 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:20:35 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 07:27:08 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ray_loop(void *param)
 	game = (t_game *)param;
 	ft_update_player_view(game);
 	ft_update_player_position(game);
-	ft_restet_screen_display(game);
+	//ft_reset_screen_display(game); //possible to comment it out as we clean the screen in the ray fonction
 	ft_reset_ray_parameters(game);
 	ft_ray_cast(game);
 	if (BONUS)
@@ -44,7 +44,7 @@ void	ft_start_game(t_game *game)
 		ft_error_exit("Error: minilibx failed to init", game);
 	game->window = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, "cub3D");
 	game->imgs->img = mlx_new_image(game->mlx_ptr, WIDTH, HEIGHT);
-	game->imgs->addr = mlx_get_data_addr(game->imgs->img, &game->imgs->bpp,
+	game->imgs->addr = mlx_get_data_addr(game->imgs->img, &game->imgs->bits_per_pixel,
 			&game->imgs->line_lengh, &game->imgs->endian);
 	ft_init_hud_animation(game);
 	ft_init_imgs(game);
