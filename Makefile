@@ -52,6 +52,7 @@ PARSINGFILES 	= utils.c \
 			    tab_manip.c \
 				get_texture_paths.c \
 				free.c \
+				utils2.c \
 				parse_map.c
 RUNFILES 		= draw.c \
 				init_player.c \

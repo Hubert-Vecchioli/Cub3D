@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:53:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 19:07:13 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:36:49 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include <unistd.h>
 # include "struct.h"
 
-char			**ft_convert_map_to_square(char **map);
 char			**del_nfirst(int n, char **map);
 char			**ft_remove_row(char **split, int i);
 int				ft_parse_game(char **av, t_game *game);

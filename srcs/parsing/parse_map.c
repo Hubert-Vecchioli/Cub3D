@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 03:07:08 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 11:18:47 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:36:37 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_parse_game(char **av, t_game *game)
 	ft_get_colors(game);
 	ft_has_a_single_player(game);
 	ft_remove_empty_rows(game);
-	//ft_convert_map_to_square(game->map); // j'ai eu une mauvaise idée mais je laisse si on veut y revenir
 	ft_is_map_closed(game);
 	ft_has_another_map_below(game);
 	return (1);

@@ -6,12 +6,11 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:05:15 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 18:43:48 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:29:20 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
 
 int	ray_loop(void *param)
 {
@@ -29,7 +28,8 @@ int	ray_loop(void *param)
 		ft_add_weapon(game);
 	}
 	if (game->imgs->img)
-		mlx_put_image_to_window(game->mlx_ptr, game->window, game->imgs->img, 0, 0);
+		mlx_put_image_to_window(game->mlx_ptr, game->window,
+			game->imgs->img, 0, 0);
 	if (BONUS)
 		ft_minimap(game);
 	return (1);
@@ -43,17 +43,19 @@ void	ft_start_game(t_game *game)
 		ft_error_exit("Error: minilibx failed to init", game);
 	game->window = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, "cub3D");
 	game->imgs->img = mlx_new_image(game->mlx_ptr, WIDTH, HEIGHT);
-	game->imgs->addr = mlx_get_data_addr(game->imgs->img, &game->imgs->bits_per_pixel,
+	game->imgs->addr = mlx_get_data_addr(game->imgs->img,
+			&game->imgs->bits_per_pixel,
 			&game->imgs->line_lengh, &game->imgs->endian);
 	ft_init_hud_animation(game);
 	ft_init_imgs(game);
-	mlx_hook(game->window, DestroyNotify, ButtonPressMask,ft_window_close, game);
+	mlx_hook(game->window, DestroyNotify, ButtonPressMask,
+		ft_window_close, game);
 	mlx_hook(game->window, KeyPress, KeyPressMask, ft_on_keypress, game);
 	mlx_hook(game->window, KeyRelease, KeyReleaseMask, ft_on_key_release,
 		game);
-	//mlx_mouse_hide(game->mlx_ptr, game->window); je retire car ça leak de hide la souris : https://github.com/42Paris/minilibx-linux/issues/48
-	mlx_hook(game->window, MotionNotify, PointerMotionMask, ft_hook_on_mousemove,
-		game);
+	mlx_mouse_hide(game->mlx_ptr, game->window);
+	mlx_hook(game->window, MotionNotify, PointerMotionMask,
+		ft_hook_on_mousemove, game);
 	mlx_mouse_hook(game->window, ft_on_mouse_click, game);
 	mlx_loop_hook(game->mlx_ptr, &ray_loop, (void *)game);
 	mlx_mouse_move(game->mlx_ptr, game->window, WIDTH / 2, HEIGHT / 2);

@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:28:19 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:09:53 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:39:56 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void	ft_add_weapon(t_game *game)
 	t_img_data	*fr;
 
 	fr = game->hud->frames;
-	if (game->hud->animation_screen && game->hud->animation_screen >= 1 
+	if (game->hud->animation_screen && game->hud->animation_screen >= 1
 		&& game->hud->animation_screen < 4)
 		ft_add_img_but_one_color(game, fr[1], WIDTH - fr[1].width
 			- 50, HEIGHT - fr[1].height);
-	else if (game->hud->animation_screen && game->hud->animation_screen >= 4 
+	else if (game->hud->animation_screen && game->hud->animation_screen >= 4
 		&& game->hud->animation_screen < 8)
 		ft_add_img_but_one_color(game, fr[2], WIDTH - fr[2].width
 			- 50, HEIGHT - fr[2].height);
-	else if (game->hud->animation_screen && game->hud->animation_screen >= 8 
+	else if (game->hud->animation_screen && game->hud->animation_screen >= 8
 		&& game->hud->animation_screen < 12)
 		ft_add_img_but_one_color(game, fr[3], WIDTH - fr[3].width
 			- 50, HEIGHT - fr[3].height);
@@ -60,7 +60,7 @@ void	ft_init_weapon_sprites(t_game *game)
 	{
 		game->hud->frames[i].width = 512;
 		game->hud->frames[i].height = 512;
-		game->hud->frames[i].not_printed_color = -16777216; // perfect black ;)
+		game->hud->frames[i].not_printed_color = -16777216;
 		i++;
 	}
 }
@@ -78,8 +78,11 @@ void	ft_add_img_but_one_color(t_game *game, t_img_data img, int img_corner_x,
 		img_col_id = 0;
 		while (img_col_id < img.width)
 		{
-			if (img.addr_int[img_row_id * img.width + img_col_id] != img.not_printed_color)
-				ft_color_single_pixel(game, img_corner_x + img_col_id, img_corner_y + img_row_id, img.addr_int[img_row_id
+			if (img.addr_int[img_row_id * img.width + img_col_id]
+				!= img.not_printed_color)
+				ft_color_single_pixel(game, img_corner_x
+					+ img_col_id, img_corner_y
+					+ img_row_id, img.addr_int[img_row_id
 					* img.width + img_col_id]);
 			img_col_id++;
 		}

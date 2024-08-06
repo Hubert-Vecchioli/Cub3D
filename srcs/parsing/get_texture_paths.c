@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_texture_paths.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 07:55:19 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 17:54:27 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:37:56 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static int	ft_test_texture_path(t_game *game)
 	while (i < 4)
 	{
 		if (ft_reverse_strcmp(game->texture_paths[i], ".xpm") == -1)
-			ft_error_exit("Error: texure file has no .xpm", game);	
+			ft_error_exit("Error: texure file has no .xpm", game);
 		tmp_fd = open(game->texture_paths[i], O_RDONLY);
 		if (tmp_fd == -1)
-			ft_error_exit("Error: texture path can not be open", game);	
+			ft_error_exit("Error: texture path can not be open", game);
 		close(tmp_fd);
 		i++;
 	}

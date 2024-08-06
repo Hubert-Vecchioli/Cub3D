@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 18:47:05 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:35:36 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_count_numbers_in_row(char *str)
 	return (num);
 }
 
-static int	ft_review_color_format(char *str, int	i)
+static int	ft_review_color_format(char *str, int i)
 {
 	int	count_coma;
 
@@ -51,7 +51,6 @@ static int	ft_review_color_format(char *str, int	i)
 		return (0);
 	return (1);
 }
-
 
 int	ft_convert_rgb_in_bytes(t_game *game, int row_id, int color_id, int col_id)
 {

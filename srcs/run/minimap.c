@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 00:01:26 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:39:27 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:24:36 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	ft_minimap_draw(t_game *game, t_vector mini_map_pos, t_vector mini_map_size)
+static void	ft_minimap_draw(t_game *game, t_vector mini_map_pos,
+t_vector mini_map_size)
 {
 	t_minimap	minimap;
 
@@ -26,15 +27,16 @@ static void	ft_minimap_draw(t_game *game, t_vector mini_map_pos, t_vector mini_m
 			if (minimap.axe.y >= 0 && minimap.axe.y < HEIGHT
 				&& minimap.axe.x >= 0 && minimap.axe.x < WIDTH
 				&& ft_tablen(game->map) > (size_t)minimap.axe.x
-				&& ft_strlen(game->map[minimap.axe.x]) > (size_t)minimap.axe.y)
-				ft_minimap_actual_draw(game, mini_map_pos, mini_map_size, &minimap);
+				&& ft_strlen(game->map[minimap.axe.x])
+				> (size_t)minimap.axe.y)
+				ft_minimap_actual_draw(game, mini_map_pos,
+					mini_map_size, &minimap);
 			++minimap.axe.x;
 		}
 		++minimap.axe.y;
 	}
 	draw_player(game, mini_map_pos, mini_map_size);
 }
-
 
 static void	ft_minimap_border(t_game *game, t_vector *mini_map_pos, \
 	t_vector *mini_map_size)
@@ -47,7 +49,8 @@ static void	ft_minimap_border(t_game *game, t_vector *mini_map_pos, \
 	ft_draw_square(game, *mini_map_pos, *mini_map_size, 0x808080);
 }
 
-static void	ft_minimap_size(t_game *game, t_vector *mini_map_size, t_vector *mini_map_pos)
+static void	ft_minimap_size(t_game *game, t_vector *mini_map_size,
+t_vector *mini_map_pos)
 {
 	mini_map_size->x = WIDTH / 8;
 	mini_map_size->y = mini_map_size->x;

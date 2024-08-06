@@ -6,63 +6,11 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:29:01 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:03:04 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:37:26 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
-// void	ft_fill_square_map(char **new_map, char **map, int max_row_len)
-// {
-// 	int	row_id;
-// 	int	col_id;
-// 	int	map_row_length;
-
-// 	row_id = 0;
-// 	while (new_map[row_id])
-// 	{
-// 		col_id = 0;
-// 		map_row_length = ft_strlen(map[row_id]) - 1;
-// 		while (col_id < max_row_len)
-// 		{
-// 			if (col_id > map_row_length || (map[row_id][col_id] && map[row_id][col_id] == ' '))
-// 				new_map[row_id][col_id] = '2';
-// 			else
-// 				new_map[row_id][col_id] = map[row_id][col_id];
-// 			col_id++;
-// 		}
-// 		row_id++;
-// 	}
-// }
-
-// void	ft_convert_map_to_square(t_game *game)
-// {
-// 	int		max_row_len;
-// 	char	**new_map;
-// 	int		i;
-// 	int		len;
-
-// 	i = 0;
-// 	len = ft_tablen(game->map);
-// 	max_row_len = get_max_row_len(game->map);
-// 	new_map = ft_calloc(len + 1, sizeof(char *));
-// 	if (!new_map)
-// 		ft_error_exit("Error: malloc failure", game);
-// 	while (i < len)
-// 	{
-// 		new_map[i] = ft_calloc(max_row_len + 1, sizeof(char));
-// 		if (!new_map[i - 1])
-// 		{
-// 			ft_free_split(&new_map);
-// 			ft_error_exit("Error: malloc failure", game);
-// 		}
-// 		i++;
-// 	}
-// 	new_map[i] = 0;
-// 	ft_fill_square_map(new_map, game->map, max_row_len);
-// 	ft_free_split(&game->map);
-// 	game->map = new_map;
-// }
 
 char	**ft_remove_row(char **split, int i)
 {
@@ -72,7 +20,7 @@ char	**ft_remove_row(char **split, int i)
 
 	j = 0;
 	k = 0;
-	new = ft_calloc(ft_tablen(split) + 2, sizeof(char *)); // not to many rows?
+	new = ft_calloc(ft_tablen(split) + 2, sizeof(char *));
 	if (!new)
 		return (NULL);
 	while (split[j] && j != i)
