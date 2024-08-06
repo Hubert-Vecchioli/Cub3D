@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 04:55:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:24:51 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:32:34 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_draw_wall_line(t_game *game)
 	screen_row_id = game->line->drawstart;
 	while (screen_row_id < game->line->drawend)
 	{
-		// if drawend ==  drawstart ?
 		game->line->pos_in_texture_y = ((((double)screen_row_id - (double)game->line->drawstart)
 			/ ((double)game->line->drawend - (double)game->line->drawstart)) * (double)game->line->span + (double)game->line->off);
 		if (BONUS && game->ray->hit == 2)

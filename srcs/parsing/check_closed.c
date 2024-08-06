@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_closed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:38:40 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:56:07 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:02:40 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_map_has_surronding_leak(char **map, int i, int j)
 	return (0);
 }
 
-// How to handle non square maps ??
 static int	ft_is_char_allowed_in_map(char c)
 {
 	if (BONUS == 1 && c == 'D')
