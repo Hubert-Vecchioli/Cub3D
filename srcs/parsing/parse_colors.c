@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 00:30:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 18:32:27 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:52:17 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,5 @@ int	ft_get_colors(t_game *game)
 		ft_parse_colors(game, &row_id, &count_colors);
 	if (count_colors != 2)
 		ft_error_exit("Error: missing color in input", game);
-	printf("color F: %x\n", game->colors[0]);
-	printf("color C: %x\n", game->colors[1]);
 	return (1);
 }

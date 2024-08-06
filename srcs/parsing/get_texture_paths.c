@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_texture_paths.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 07:55:19 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:03:00 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:54:27 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	ft_get_direction_id(char *str)
 {
-	if (!ft_strncmp(str, "NO", 2))
+	if (!ft_strncmp(str, "NO ", 3))
 		return (0);
-	if (!ft_strncmp(str, "SO", 2))
+	if (!ft_strncmp(str, "SO ", 3))
 		return (1);
-	if (!ft_strncmp(str, "WE", 2))
+	if (!ft_strncmp(str, "WE ", 3))
 		return (2);
-	if (!ft_strncmp(str, "EA", 2))
+	if (!ft_strncmp(str, "EA ", 3))
 		return (3);
 	return (-1);
 }
@@ -53,12 +53,12 @@ static void	ft_parse_texture_path(t_game *game, int *i, int *count_dir)
 	dir_id = ft_get_direction_id(&game->map[*i][col_id]);
 	if (dir_id != -1)
 	{
-		col_id += 2;
+		col_id += 3;
 		col_id += ft_count_whitespaces(&game->map[*i][col_id]);
 		if (game->texture_paths[dir_id])
 			ft_error_exit("Error: texture element already defined", game);
 		game->texture_paths[dir_id] = ft_substr(game->map[*i], col_id,
-				ft_strlen(game->map[*i]) - 3);
+				ft_strlen(game->map[*i]));
 		if (!game->texture_paths[dir_id])
 			ft_error_exit("Error: malloc failure", game);
 		game->map = ft_remove_row(game->map, *i);
