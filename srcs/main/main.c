@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:33:39 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:17:08 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:21:42 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_game	*ft_init_game(t_game *game)
 	game->ray = ft_calloc(2, sizeof(t_ray)); // je sais pas ce que ce sera mais bon
 	game->player = ft_calloc(2, sizeof(t_player));
 	game->minimap = ft_calloc(2, sizeof(t_minimap));
-	game->line = ft_calloc(2, sizeof(t_line));
+	game->line = ft_calloc(2, sizeof(t_vertical_draw)); // mod t_line en t_vertical_draw
 	if (!game->imgs || !game->ray || !game->player || !game->minimap
 		|| !game->line)
 		ft_error_exit("Error: malloc failure", game);

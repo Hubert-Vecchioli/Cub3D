@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:03:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 18:32:32 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:30:57 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_reverse_strcmp(char *str, char *cmp)
 
 	i = ft_strlen(str) - 1;
 	j = ft_strlen(cmp) - 1;
-	while (str[i] && cmp[j] && j >= 0)
+	while (j >= 0 && str[i] && cmp[j])
 	{
 		if (str[i] != cmp[j])
 			return (-1);

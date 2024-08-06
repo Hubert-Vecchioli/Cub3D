@@ -8,7 +8,7 @@
 
 NAME			= cub3D
 CC 				= cc
-CFLAGS 			= -Wall -Werror -Wextra -g3 -Imlx
+CFLAGS 			= -Wall -Werror -Wextra -fsanitize=address -g3 #-Imlx
 BONUS  			= 
 
 ###############################################################################
@@ -60,6 +60,7 @@ RUNFILES 		= draw.c \
 				inits.c \
 				utils.c \
 				ray_casting.c \
+				ray_utils.c \
 				on_keypress.c \
 				minimap.c \
 				start_game.c

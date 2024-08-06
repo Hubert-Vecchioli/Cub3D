@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 03:07:08 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 13:46:12 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:18:47 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_parse_game(char **av, t_game *game)
 {
 	int		map_fd;
-	
+
 	map_fd = 0;
 	ft_get_fd(av[1], game, &map_fd);
 	ft_get_raw_input(av, map_fd, game);

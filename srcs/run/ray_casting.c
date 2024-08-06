@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 23:47:02 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:38:01 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:21:25 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static void	ft_init_new_ray(t_game *game)
 	game->ray->mapy = (int)game->player->posy;
 	if (game->ray->raydirx)
 		game->ray->distance_to_next_x = fabs(1 / game->ray->raydirx);
-	else 
+	else
 		game->ray->distance_to_next_x = 1 / 0.000001;
 	if (game->ray->raydiry)
 		game->ray->distance_to_next_y = fabs(1 / game->ray->raydiry);
-	else 
+	else
 		game->ray->distance_to_next_y = 1 / 0.000001;
 	game->ray->hit = 0;
 }
@@ -84,7 +84,7 @@ static void	ft_loop_ray_until_a_hit(t_game *game)
 				game->ray->door_pos_x = game->ray->mapx;
 				game->ray->door_pos_y = game->ray->mapx;
 			}
-			if (data->map[game->ray->mapx][game->ray->mapy] == 'W' && game->ray->x == WIDTH /2)
+			if (game->map[game->ray->mapx][game->ray->mapy] == 'W' && game->ray->x == WIDTH /2) // modifcation de data --> map
 			{
 				if (game->ray->side == 0)
 					game->ray->perpwalldist = (game->ray->distance_to_first_x - game->ray->distance_to_next_x);
@@ -101,7 +101,7 @@ static void	ft_loop_ray_until_a_hit(t_game *game)
 	}
 }
 
-static void	ft_draw_floor_and_ceiling(t_game *game) 
+static void	ft_draw_floor_and_ceiling(t_game *game)
 {
 	int	screen_col_id;
 	int	screen_row_id;
