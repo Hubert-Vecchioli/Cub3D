@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 04:55:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 19:12:10 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:20:05 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,20 @@ void	ft_draw_wall_line(t_game *game)
 	while (screen_row_id < game->line->drawend)
 	{
 		game->line->pos_in_texture_y = ((((double)screen_row_id
-					- (double)game->line->drawstart)
-					/ ((double)game->line->drawend - (double)game->line->drawstart))
-					* (double)game->line->span + (double)game->line->off);
+						- (double)game->line->drawstart)
+					/ ((double)game->line->drawend
+						- (double)game->line->drawstart))
+				* (double)game->line->span + (double)game->line->off);
 		if (BONUS && game->ray->hit == 2)
-			game->line->tex_color = game->textures[4][game->line->pos_in_texture_y * game->tex_size + game->line->pos_in_texture_x];
-		else 
-			game->line->tex_color = game->textures[game->ray->side][game->line->pos_in_texture_y * game->tex_size + game->line->pos_in_texture_x];
-		ft_color_single_pixel(game, game->ray->x, screen_row_id, game->line->tex_color);
+			game->line->tex_color = game->textures[4]
+			[game->line->pos_in_texture_y
+				* game->tex_size + game->line->pos_in_texture_x];
+		else
+			game->line->tex_color = game->textures[game->ray->side]
+			[game->line->pos_in_texture_y * game->tex_size
+				+ game->line->pos_in_texture_x];
+		ft_color_single_pixel(game, game->ray->x, screen_row_id,
+			game->line->tex_color);
 		screen_row_id++;
 	}
 }
@@ -90,12 +96,14 @@ void	ft_loop_ray_until_a_hit_bonus(t_game *game)
 			game->ray->door_pos_y = game->ray->mapy;
 		}
 		if (game->map[game->ray->mapx][game->ray->mapy] == 'W'
-				&& game->ray->x == WIDTH /2)
+				&& game->ray->x == WIDTH / 2)
 		{
 			if (game->ray->side == 0)
-				game->ray->perpwalldist = (game->ray->distance_to_first_x	- game->ray->distance_to_next_x);
+				game->ray->perpwalldist = (game->ray->distance_to_first_x
+						- game->ray->distance_to_next_x);
 			else if (game->ray->side == 1)
-				game->ray->perpwalldist = (game->ray->distance_to_first_y - game->ray->distance_to_next_y);
+				game->ray->perpwalldist = (game->ray->distance_to_first_y
+						- game->ray->distance_to_next_y);
 			if (game->ray->perpwalldist < 1)
 			{
 				game->ray->aiming_at_open_door = 1;
