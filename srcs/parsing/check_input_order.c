@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input_order.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 07:10:10 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:04:31 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:11:33 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ft_check_input_order(t_game *game)
 		if (ft_element_has_premap_prefix(game->map[i]))
 		{
 			if (i > first_row)
-				ft_error_exit("Error: The input has a wrong order", game);
+				ft_error_exit("Error: The input has a wrong order or no map", game);
 		}
 		i++;
 	}
