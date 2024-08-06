@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 21:28:24 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:45:54 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:16:47 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,6 @@ void	ft_init_imgs(t_game *game)
 			game->texture_paths[3]);
 	if (BONUS)
 		game->textures[4] = ft_xpm_to_tab(game, &game->tex_size,
-				&game->tex_size, "./textures/blackstone.xpm");
+				&game->tex_size, "./textures/door.xpm");
 	ft_init_weapon_sprites(game);
 }

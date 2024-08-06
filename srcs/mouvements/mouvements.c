@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouvements.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:57 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:41:55 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:21:25 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_door_action(t_game *game)
 {
- if (game->ray->aiming_at_door)
-   {
+	if (game->ray->aiming_at_door)
+	{
        game->map[game->ray->door_pos_x][game->ray->door_pos_y] = 'W';
-   }
-   if (game->ray->aiming_at_open_door && (game->ray->door_pos_x
+	}
+	else if (game->ray->aiming_at_open_door && (game->ray->door_pos_x
    		!= game->player->posx || game->ray->door_pos_y != game->player->posy))
-   {
+	{
        game->map[game->ray->door_pos_x][game->ray->door_pos_y] = 'D';
-   }
+	}
 
 }
 

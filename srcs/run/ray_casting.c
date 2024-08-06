@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 23:47:02 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 11:21:25 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:07:18 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void	ft_loop_ray_until_a_hit(t_game *game)
 			{
 				game->ray->hit = 2;
 				game->ray->door_pos_x = game->ray->mapx;
-				game->ray->door_pos_y = game->ray->mapx;
+				game->ray->door_pos_y = game->ray->mapy;
 			}
 			if (game->map[game->ray->mapx][game->ray->mapy] == 'W' && game->ray->x == WIDTH /2) // modifcation de data --> map
 			{
@@ -94,7 +94,7 @@ static void	ft_loop_ray_until_a_hit(t_game *game)
 				{
 					game->ray->aiming_at_open_door = 1;
 					game->ray->door_pos_x = game->ray->mapx;
-					game->ray->door_pos_y = game->ray->mapx;
+					game->ray->door_pos_y = game->ray->mapy;
 				}
 			}
 		}
