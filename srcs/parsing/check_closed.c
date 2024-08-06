@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_closed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:38:40 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 18:15:10 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:28:59 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	ft_map_has_surronding_leak(char **map, int i, int j)
 		|| (j >= (int)ft_strlen(map[i - 1]) || ft_iswhitespace(map[i - 1][j + 1]) || !map[i - 1][j + 1])
 		|| (j >= (int)ft_strlen(map[i]) || ft_iswhitespace(map[i][j - 1]) || !map[i][j - 1])
 		|| (j >= (int)ft_strlen(map[i]) || ft_iswhitespace(map[i][j + 1]) || !map[i][j + 1])
-		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j - 1]) || !map[i + 1][j - 1])
-		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j]) || !map[i + 1][j])
-		|| (j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j + 1])) || !map[i + 1][j + 1])
+		|| ((i + 1) >= (int)ft_tablen(map) || j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j - 1]) || !map[i + 1][j - 1])
+		|| ((i + 1) >= (int)ft_tablen(map) || j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j]) || !map[i + 1][j])
+		|| ((i + 1) >= (int)ft_tablen(map) || j >= (int)ft_strlen(map[i + 1]) || ft_iswhitespace(map[i + 1][j + 1])) || !map[i + 1][j + 1])
 		return (1);
 	return (0);
 }
