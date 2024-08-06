@@ -66,7 +66,8 @@ RUNFILES 		= draw.c \
 				minimap.c \
 				start_game.c
 MVTFILES	 	= mouvements.c \
-				mouse.c
+				mouse.c \
+				door.c
 ANIMATIONFILES	= hud_utils.c \
 				hud.c 
 
