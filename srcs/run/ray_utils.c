@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 04:55:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:36:55 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:24:51 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,15 @@ void	ft_init_line(t_game *game)
 	game->line->y = game->line->drawend - game->line->drawstart;
 	game->line->x = game->ray->x;
 	game->line->pos_in_texture_x = (game->ray->wall_x * game->tex_size);
+	game->line->span = game->tex_size;
+	game->line->off = 0;
 	if (game->ray->x == WIDTH / 2 && game->ray->hit == 2 && game->ray->perpwalldist < 1)
 		game->ray->aiming_at_door = 1;
+	if (game->line->y >= HEIGHT - 1)
+	{
+		game->line->span = (game->ray->perpwalldist * game->tex_size);
+		game->line->off = (game->tex_size * 0.5) * (1 - game->ray->perpwalldist);
+	}
 }
 
 void	ft_draw_wall_line(t_game *game)
@@ -53,8 +60,8 @@ void	ft_draw_wall_line(t_game *game)
 	while (screen_row_id < game->line->drawend)
 	{
 		// if drawend ==  drawstart ?
-		game->line->pos_in_texture_y = ((((float)screen_row_id - (float)game->line->drawstart)
-			/ ((float)game->line->drawend - (float)game->line->drawstart)) * game->tex_size);
+		game->line->pos_in_texture_y = ((((double)screen_row_id - (double)game->line->drawstart)
+			/ ((double)game->line->drawend - (double)game->line->drawstart)) * (double)game->line->span + (double)game->line->off);
 		if (BONUS && game->ray->hit == 2)
 			game->line->tex_color = game->textures[4][game->line->pos_in_texture_y * game->tex_size + game->line->pos_in_texture_x];
 		else 

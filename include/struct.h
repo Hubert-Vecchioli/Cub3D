@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 03:08:23 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 07:38:23 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:10:24 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_vertical_draw
 	int			pos_in_texture_x;
 	int			pos_in_texture_y;
 	int			tex_color;
+	int			span;
+	int			off;
 }				t_vertical_draw;
 
 typedef struct s_player
