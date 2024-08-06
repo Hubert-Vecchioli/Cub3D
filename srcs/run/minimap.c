@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 00:01:26 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:32:19 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:39:27 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_minimap_draw(t_game *game, t_vector mini_map_pos, t_vector mini_m
 		{
 			if (minimap.axe.y >= 0 && minimap.axe.y < HEIGHT
 				&& minimap.axe.x >= 0 && minimap.axe.x < WIDTH
-				&& game->map[minimap.axe.x] != NULL
+				&& ft_tablen(game->map) > (size_t)minimap.axe.x
 				&& ft_strlen(game->map[minimap.axe.x]) > (size_t)minimap.axe.y)
 				ft_minimap_actual_draw(game, mini_map_pos, mini_map_size, &minimap);
 			++minimap.axe.x;

@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:23:12 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:25:19 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:47:07 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_vector mini_map_size, t_minimap *minimap)
 		* mini_map_size.x / 10;
 	minimap->pos.y = mini_map_pos.y + (minimap->axe.y - game->player->posy + 5) \
 		* mini_map_size.y / 10;
-	minimap->size.x = mini_map_size.x / 10;
-	minimap->size.y = mini_map_size.y / 10;
+	minimap->size.x = 1.1 * mini_map_size.x / 10;
+	minimap->size.y = 1.1 * mini_map_size.y / 10;
 	if (minimap->size.x > 0 && minimap->size.y > 0)
 	{
 		if (game->map[minimap->axe.x][minimap->axe.y] == '1')
