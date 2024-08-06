@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 04:55:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:32:34 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:25:12 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	ft_draw_wall_line(t_game *game)
 		game->line->pos_in_texture_y = ((((double)screen_row_id - (double)game->line->drawstart)
 			/ ((double)game->line->drawend - (double)game->line->drawstart)) * (double)game->line->span + (double)game->line->off);
 		if (BONUS && game->ray->hit == 2)
-			game->line->tex_color = game->textures[4][game->line->pos_in_texture_y * game->tex_size + game->line->pos_in_texture_x];
+			game->line->tex_color = game->textures[4][game->line->pos_in_texture_x * game->tex_size + game->line->pos_in_texture_y];
 		else 
-			game->line->tex_color = game->textures[game->ray->side][game->line->pos_in_texture_y * game->tex_size + game->line->pos_in_texture_x];
+			game->line->tex_color = game->textures[game->ray->side][game->line->pos_in_texture_x * game->tex_size + game->line->pos_in_texture_y];
 		ft_color_single_pixel(game, game->ray->x, screen_row_id, game->line->tex_color);
 		screen_row_id++;
 	}
