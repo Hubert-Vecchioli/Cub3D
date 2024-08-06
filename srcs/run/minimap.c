@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 00:01:26 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:20:14 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:32:19 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ static void	ft_minimap_draw(t_game *game, t_vector mini_map_pos, t_vector mini_m
 		minimap.axe.x = game->player->posx - 5;
 		while (minimap.axe.x < game->player->posx + 5)
 		{
-			if (minimap.axe.y >= 0 && minimap.axe.y < HEIGHT \
-				&& minimap.axe.x >= 0 && minimap.axe.x < WIDTH)
+			if (minimap.axe.y >= 0 && minimap.axe.y < HEIGHT
+				&& minimap.axe.x >= 0 && minimap.axe.x < WIDTH
+				&& game->map[minimap.axe.x] != NULL
+				&& ft_strlen(game->map[minimap.axe.x]) > (size_t)minimap.axe.y)
 				ft_minimap_actual_draw(game, mini_map_pos, mini_map_size, &minimap);
 			++minimap.axe.x;
 		}

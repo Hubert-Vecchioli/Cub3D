@@ -6,7 +6,7 @@
 /*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:23:12 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 17:40:25 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:25:19 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_vector mini_map_size, t_minimap *minimap)
 	minimap->size.y = mini_map_size.y / 10;
 	if (minimap->size.x > 0 && minimap->size.y > 0)
 	{
-		if (game->map[minimap->axe.y][minimap->axe.x] == '1')
+		if (game->map[minimap->axe.x][minimap->axe.y] == '1')
 			ft_draw_square(game, minimap->pos, minimap->size, 0x000000);
 	}
 }
