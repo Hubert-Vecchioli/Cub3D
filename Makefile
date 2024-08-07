@@ -121,6 +121,6 @@ fclean : clean
 re: fclean all
 
 norm:
-	norminette $(SRCS) $(INCS)
+	norminette $(SRCS) $(INCS) $(LIBFT_DIR)
 
 .PHONY: all clean fclean re bonus

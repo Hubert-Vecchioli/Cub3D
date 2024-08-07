@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:57 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/07 09:58:05 by ebesnoin         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:05:39 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	ft_free_all(t_game *game)
 	if (game->window)
 	{
 		mlx_clear_window(game->mlx_ptr, game->window);
-		mlx_destroy_image(game->mlx_ptr, game->imgs->img);
+		if (game->imgs->img)
+			mlx_destroy_image(game->mlx_ptr, game->imgs->img);
 		mlx_destroy_window(game->mlx_ptr, game->window);
 		mlx_destroy_display(game->mlx_ptr);
 		free_int_tab(game->textures, 4 + BONUS);
