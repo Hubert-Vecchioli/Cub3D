@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:05:15 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 19:29:20 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:57:56 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	ft_start_game(t_game *game)
 	mlx_hook(game->window, KeyPress, KeyPressMask, ft_on_keypress, game);
 	mlx_hook(game->window, KeyRelease, KeyReleaseMask, ft_on_key_release,
 		game);
-	mlx_mouse_hide(game->mlx_ptr, game->window);
 	mlx_hook(game->window, MotionNotify, PointerMotionMask,
 		ft_hook_on_mousemove, game);
 	mlx_mouse_hook(game->window, ft_on_mouse_click, game);

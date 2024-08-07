@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 09:29:57 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 19:25:53 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:58:05 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	ft_free_all(t_game *game)
 {
 	if (game->window)
 	{
-		mlx_mouse_show(game->mlx_ptr, game->window);
 		mlx_clear_window(game->mlx_ptr, game->window);
 		mlx_destroy_image(game->mlx_ptr, game->imgs->img);
 		mlx_destroy_window(game->mlx_ptr, game->window);
