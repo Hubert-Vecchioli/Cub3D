@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:12:34 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/05 12:52:38 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/07 10:48:48 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	close_and_exit(t_game *game)
 
 int	ft_window_close(t_game *game)
 {
-	ft_putendl_fd("Closing window", 1);
+	ft_putendl_fd("Closing window - See you soon!", 1);
 	close_and_exit(game);
 	return (0);
 }

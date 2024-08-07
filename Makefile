@@ -8,8 +8,8 @@
 
 NAME			= cub3D
 CC 				= cc
-CFLAGS 			= -Wall -Werror -Wextra -g3 #-fsanitize=address -g3 #-Imlx
-BONUS  			= 
+CFLAGS 			= -Wall -Werror -Wextra #-fsanitize=address -g3
+BONUS 			=
 
 ###############################################################################
 ###############################################################################
@@ -20,24 +20,8 @@ LIBFT			= $(LIBFT_DIR)/libft.a
 ###############################################################################
 ###############################################################################
 
-PLATFORM		=	$(shell uname -s)
-
-ifeq ($(PLATFORM), Darwin)
-	OS			=	macos
-else ifeq ($(PLATFORM), Linux)
-	OS			=	linux
-endif
-
-###############################################################################
-###############################################################################
-
-# ifeq ($(PLATFORM), Darwin)
-# 	MINILIBX_PATH 	=	./mlx-opengl
-# 	MINIFLAGS		=	-framework OpenGL -framework Appkit -lz
-# else
-	MINILIBX_PATH 	=	./mlx-linux
-	MINIFLAGS		=	-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
-# endif
+MINILIBX_PATH 	=	./mlx-linux
+MINIFLAGS		=	-L$(MINILIBX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 MINILIBX			= $(MINILIBX_PATH)/libmlx.a
 
 ###############################################################################

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ebesnoin <ebesnoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 03:08:23 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/08/06 13:10:24 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/08/07 10:03:10 by ebesnoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # endif
 # define WIDTH 900
 # define HEIGHT 900
-# define ROTATION_SPEED 0.06
-# define MOVESPEED 0.08
+# define ROTATION_SPEED 0.15
+# define MOVESPEED 0.05
 # define KEY_ESC			65307
 # define KEY_Q				113
 # define W_KEY				119
